@@ -22,7 +22,9 @@ data class Movie(
     @SerializedName("release_date") val release_date: String
 ) : Parcelable {
     val fullPosterPath: String
-        get() = "http://image.tmdb.org/t/p/w342$poster_path"
+        get() = "https://image.tmdb.org/t/p/w342$poster_path"
     val fullBackDropPath: String
-        get() = "http://image.tmdb.org/t/p/w780$backdrop_path"
+        get() = "https://image.tmdb.org/t/p/w780$backdrop_path"
 }
+
+

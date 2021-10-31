@@ -1,27 +1,38 @@
 package com.truckitin.truckitinmobileassignment.networking
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import kotlinx.coroutines.flow.Flow
+import com.truckitin.truckitinmobileassignment.CATEGORY_TOP_RATED
+import com.truckitin.truckitinmobileassignment.DEFAULT_LANGUAGE
+import com.truckitin.truckitinmobileassignment.SECRET_KEY
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.HttpException
+import timber.log.Timber
+import java.io.IOException
+import javax.inject.Inject
 
-class Repository constructor(
-    private val serviceMovies: MoviesApiService
-) {
-    fun getMovieResultStream(category: String?, language: String?):
-            Flow<PagingData<Movie>> {
-        return Pager(
-            config = PagingConfig(
-                pageSize = 20,
-                enablePlaceholders = false
-            ),
-            pagingSourceFactory = {
-                MoviesPagingSource(
-                    serviceMovies,
-                    category,
-                    language
+class Repository @Inject constructor(private val serviceMovies: MoviesApiService) {
+
+    suspend fun getTopRatedMovies(): ResponseResult<MovieDTO> {
+        return withContext(Dispatchers.IO) {
+            try {
+                val moviesList = serviceMovies.getMovies(
+                    CATEGORY_TOP_RATED,
+                    SECRET_KEY,
+                    DEFAULT_LANGUAGE,
+                    2,
+                    false
                 )
-            }).flow
+                 Timber.d("success: $moviesList")
+                ResponseResult.Success(moviesList)
+
+            } catch (exception: IOException) {
+                Timber.d("error: $exception")
+                ResponseResult.Error(exception)
+            } catch (exception: HttpException) {
+                Timber.d("error: $exception")
+                ResponseResult.Error(exception)
+            }
+        }
     }
 
 }
