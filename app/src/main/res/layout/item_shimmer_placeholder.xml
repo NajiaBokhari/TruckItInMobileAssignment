@@ -10,12 +10,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:background="@drawable/card_border_container"
-        android:padding="4dp">
+        android:paddingStart="4dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="12dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivPoster"
             android:layout_width="100dp"
-            android:layout_height="120dp"
+            android:layout_height="90dp"
             android:background="@drawable/card_shimmer_placeholder"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -27,40 +30,39 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvMovieTitle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="6dp"
             android:background="@color/colorGrey"
-            android:maxLines="22"
-            android:paddingBottom="6dp"
-            android:paddingTop="6dp"
+            android:maxLines="2"
             android:paddingStart="2dp"
-            android:layout_marginBottom="8dp"
-            android:text="top rated movies"
             android:textSize="16dp"
-            android:textColor="@color/colorGrey"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tvOverview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivPoster"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintVertical_weight=".04" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvOverview"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="6dp"
             android:background="@color/colorGrey"
-            android:paddingStart="2dp"
             android:ellipsize="end"
-            android:maxLines="4"
-            android:textColor="@color/colorGrey"
-            android:text="Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope."
+            android:maxLines="3"
+            android:paddingStart="2dp"
+
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivPoster"
-            app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"
+            app:layout_constraintVertical_weight=".07" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

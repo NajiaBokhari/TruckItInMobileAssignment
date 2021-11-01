@@ -16,8 +16,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MoviesActivity"
-        >
+        tools:context=".ui.MoviesActivity">
 
         <FrameLayout
             android:id="@+id/settings_container"
@@ -42,16 +41,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="0dp"
+                android:orientation="vertical">
 
                 <include
                     layout="@layout/layout_lottie_animation"
-
+                    viewModel="@{viewModel}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                     viewModel="@{viewModel}"
-                    android:layout_gravity="top"
-                    />
+                    android:layout_gravity="top" />
 
                 <include
                     layout="@layout/layout_shimmer"
