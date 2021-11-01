@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.truckitin.truckitinmobileassignment.R
 
 
@@ -28,12 +29,18 @@ object BindingAdapters {
 
     @BindingAdapter("src")
     @JvmStatic
-    fun setImageResId(view: AppCompatImageView, imageSrc: String ) {
+    fun setImageResId(view: AppCompatImageView, imageSrc: String?) {
+        Glide.with(view.context)
+            .load(imageSrc).transforms(CenterCrop(), RoundedCorners(25))
+            .placeholder(R.drawable.no_image).transforms(CenterCrop(), RoundedCorners(25))
+            .into(view)
 
-            Glide.with(view.context)
-                .load(imageSrc).transforms(CenterCrop(), RoundedCorners(25))
-                .placeholder(R.drawable.no_image).transforms(CenterCrop(), RoundedCorners(25))
-                .into(view)
+    }
+
+    @BindingAdapter("animateShimmers")
+    @JvmStatic
+    fun animateShimmers(shimmerFrameLayout: ShimmerFrameLayout, animate: Boolean) {
+        if (animate) shimmerFrameLayout.startShimmerAnimation() else shimmerFrameLayout.stopShimmerAnimation()
 
     }
 }

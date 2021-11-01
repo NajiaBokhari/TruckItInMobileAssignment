@@ -88,6 +88,10 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
-//Lottie files
+    //Lottie files
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // shimmer view
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
 }

@@ -4,13 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/card_border_container.xml" value="0.2421875" />
+        <entry key="app/src/main/res/drawable/shimmer_card_placeholder.xml" value="0.20555555555555555" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12314814814814815" />
         <entry key="app/src/main/res/layout/activity_movies.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dummy.xml" value="0.11574074074074074" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/layout_shimmer.xml" value="0.164967562557924" />
         <entry key="app/src/main/res/layout/load_state_footer_view_item.xml" value="0.103125" />
         <entry key="app/src/main/res/layout/load_state_item.xml" value="0.11145833333333334" />
         <entry key="app/src/main/res/layout/movie_item.xml" value="0.11145833333333334" />
+        <entry key="app/src/main/res/layout/shimmer_placeholder_layout.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/menu/main_menu_movies.xml" value="0.11145833333333334" />
         <entry key="app/src/main/res/menu/main_menu_theme.xml" value="0.11944444444444445" />
         <entry key="app/src/main/res/xml/preferences.xml" value="0.11944444444444445" />

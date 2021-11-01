@@ -2,6 +2,9 @@ package com.truckitin.truckitinmobileassignment.ui
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableField
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.truckitin.truckitinmobileassignment.NIGHT_MODE_KEY
@@ -30,16 +33,23 @@ class MoviesViewModel @Inject constructor(
     var moviesList = MutableLiveData<List<Movie>>()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     var adapter: MovieAdapter = MovieAdapter(mutableListOf())
+    var animateShimmer: ObservableField<Boolean> = ObservableField()
 
     fun getMoviesList() {
+
         uiScope.launch {
             when (val result = repository.getTopRatedMovies()) {
                 is ResponseResult.Success -> {
                     result.data
                     moviesList.value = result.data.results
                     moviesList.value?.let { adapter?.setList(it) }
+                    animateShimmer.set(false)
                 }
-                is ResponseResult.Error -> null
+                is ResponseResult.Error -> {
+                    null
+                    animateShimmer.set(false)
+                }
+
             }
         }
     }

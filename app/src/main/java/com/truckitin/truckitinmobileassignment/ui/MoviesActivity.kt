@@ -9,6 +9,7 @@ import com.truckitin.truckitinmobileassignment.R
 import com.truckitin.truckitinmobileassignment.databinding.ActivityMoviesBinding
 import com.truckitin.truckitinmobileassignment.utils.ThemeSettingsFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.layout_shimmer.*
 
 @AndroidEntryPoint
 class MoviesActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class MoviesActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         viewModel.setUpNightMode()
         loadThemeSettings()
+        viewModel.animateShimmer.set(true)
         viewModel.getMoviesList()
     }
 
@@ -38,5 +40,4 @@ class MoviesActivity : AppCompatActivity() {
             .replace(R.id.settings_container, ThemeSettingsFragment())
             .commit()
     }
-
 }
