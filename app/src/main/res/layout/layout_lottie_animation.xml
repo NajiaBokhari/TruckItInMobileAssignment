@@ -68,6 +68,7 @@
             android:text="@string/layout_lottie_animation_err_retry_text"
             android:textColor="@color/colorGreenButton"
             android:textStyle="bold"
+            android:onClick="@{(view) -> viewModel.retry()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvErrorDescription" />

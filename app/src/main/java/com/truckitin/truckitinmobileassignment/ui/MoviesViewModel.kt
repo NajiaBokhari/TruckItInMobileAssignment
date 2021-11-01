@@ -39,6 +39,8 @@ class MoviesViewModel @Inject constructor(
     fun getMoviesList() {
 
         uiScope.launch {
+            if (animateShimmer.get() != true) animateShimmer.set(true)
+            showErrorView.set(false)
             when (val result = repository.getTopRatedMovies()) {
                 is ResponseResult.Success -> {
                     result.data
@@ -49,10 +51,15 @@ class MoviesViewModel @Inject constructor(
                 is ResponseResult.Error -> {
                     null
                     animateShimmer.set(false)
+                    showErrorView.set(true)
                 }
 
             }
         }
+    }
+
+    fun retry() {
+        getMoviesList()
     }
 
     internal fun setUpNightMode() {
