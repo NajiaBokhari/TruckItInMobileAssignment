@@ -25,6 +25,7 @@ class MoviesActivity : AppCompatActivity() {
         viewModel.setUpNightMode()
         loadThemeSettings()
         viewModel.animateShimmer.set(true)
+        viewModel.showErrorView.set(true)
         viewModel.getMoviesList()
     }
 

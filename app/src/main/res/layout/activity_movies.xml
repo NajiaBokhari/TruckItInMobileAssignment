@@ -45,6 +45,15 @@
                 android:layout_height="0dp">
 
                 <include
+                    layout="@layout/layout_lottie_animation"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     viewModel="@{viewModel}"
+                    android:layout_gravity="top"
+                    />
+
+                <include
                     layout="@layout/layout_shimmer"
                     viewModel="@{viewModel}" />
 

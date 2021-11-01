@@ -34,6 +34,7 @@ class MoviesViewModel @Inject constructor(
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
     var adapter: MovieAdapter = MovieAdapter(mutableListOf())
     var animateShimmer: ObservableField<Boolean> = ObservableField()
+    var showErrorView: ObservableField<Boolean> = ObservableField()
 
     fun getMoviesList() {
 
